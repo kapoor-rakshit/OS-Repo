@@ -14,6 +14,7 @@ main()
 					int st[n];
 					int nat[n];
 					int nst[n];
+					int np[n];
 				for(int i=0;i<n;i++)
 				{
                                   scanf("%d%d",&at[i],&st[i]);
@@ -46,8 +47,11 @@ for(int i=0;i<n;i++)
 	nst[i]=st[ind];
 	chk[ind]=false;
 	tar+=st[ind];
+	np[i]=ind+1;
 }
-printf("\nGANT Chart has processe's Arrival and Service times as follows :\n");
+printf("\nGANTT Chart has processe's Arrival and Service times as follows :\n\n");
+for(int i=0;i<n;i++) printf("%d ",np[i]);
+printf("\n\n");
 for(int i=0;i<n;i++) printf("%d ",nat[i]);
 printf("\n");
 for(int i=0;i<n;i++) printf("%d ",nst[i]);
@@ -91,5 +95,5 @@ for(int i=0;i<n;i++)
 {
 	printf("%lf ",wtt[i]);
 }
-
+printf("\n");
 }
