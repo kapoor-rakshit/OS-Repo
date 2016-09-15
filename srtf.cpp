@@ -20,27 +20,42 @@ main()
 	scanf("%d",&ts);
 
 	int gtc[sm+1];
-	gtc[1]=1;
-	st[1]--;
+
 	int mn=INT_MAX;
-	int pn;
-	for(int i=2;i<=sm;i+=ts)
+	int ja;
+
+	pair<int,int> tgtc[100];                          //temporary GANTT chart for keeping record in sorted
+
+	for(int i=1;i<=sm;i+=ts)
 	{
 		mn=INT_MAX;	
+		int ind=0;
 		for(int j=1;j<=n;j++)
 		{
+			if(at[j]==i-1) ja=j;
 			if(st[j]>0&&st[j]<=mn&&at[j]<=i-1)
 			{
-				pn=j;
+				tgtc[ind].second=j;
+				tgtc[ind].first=st[j];
+				ind++;
 				mn=st[j];
 			}
 		}
-		gtc[i]=pn;
-		st[pn]--;
+		if(at[ja]==i-1&&st[ja]==mn)             //if process has just arrived with a tie , give preference
+		{
+			gtc[i]=ja;
+			st[ja]--;
+		}
+		else
+		{
+			sort(tgtc,tgtc+ind);          //else process with smallest remaining time and that which appeared first
+			gtc[i]=tgtc[0].second;
+			st[tgtc[0].second]--;
+		}
 	}
 
 	printf("\n\nGANTT chart has processes in order : \n");
-	for(int i=1;i<=sm;i++) printf("%d ",gtc[i]);
+	for(int i=1;i<=sm;i+=ts) printf("%d ",gtc[i]);
 
 	int tchk[n];
 	for(int i=0;i<n;i++) tchk[i]=false;
