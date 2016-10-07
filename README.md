@@ -1,2 +1,2 @@
-# OS-Scheduling-Algos
-Algorithms involved in scheduling of OS
+# OS Repo
+Repo dedicated to OS concepts
