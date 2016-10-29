@@ -1,4 +1,4 @@
-/*Assume the head moves to maximum available request first, then reverse the direction to move to least request and keeps on servicing the requests in the reverse direction ,not processed yet.
+/*Assume the head moves to maximum available size first, then reverse the direction to move to 0 and keeps on servicing the requests in the reverse direction ,not processed yet.
                                          0*****************************************190                                                      */
 
 #include<bits/stdc++.h>
