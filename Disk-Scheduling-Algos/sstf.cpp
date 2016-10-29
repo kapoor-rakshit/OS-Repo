@@ -1,5 +1,6 @@
 /*Find the minimum distance from the head, and move the head to that position*/
 
+
 #include<bits/stdc++.h>
 using namespace std;
 int a[100];
