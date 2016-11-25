@@ -1,0 +1,35 @@
+          /*The kill command sends the specified signal such as kill process to the specified process or process groups. If no signal is specified, the TERM signal is sent.
+
+SIGHUP (1) – Hangup detected on controlling terminal or death of controlling process. Use SIGHUP to reload configuration files and open/close log files.
+
+SIGKILL (9) – Kill signal. Use SIGKILL as a last resort to kill process. This will not save data or cleaning kill the process.
+
+SIGTERM (15) – Termination signal. This is the default and safest way to kill process.
+
+#To find out PID of process use : pidof <---process name---->
+
+#To have a list of all signals use : kill -l
+
+
+#kill -15 3486                        // kill process with pid of 3486 
+#kill -SIGTERM 3486
+#kill 3486
+
+Sometime signal # 15 is not sufficient. For example, lighttpd may not be killed by signal #15 due to open sockets. In that case process (PID) # 3486 would be killed with the powerful signal # 9:
+
+#kill -9 3486
+#kill -SIGKILL 3486
+
+
+The syntax is as follows to kill two or more PIDs as required can be used in a single command:
+
+#kill  pid1 pid2 pid3
+#kill -15  pid1 pid2 pid3
+#kill -9  pid1 pid2 pid3
+#kill  -9 3546 5557 4242
+
+
+This is a Linux only command. to kill processes by name
+
+#killall -15 <---Process name---->
+*/

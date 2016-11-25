@@ -1,0 +1,47 @@
+#include<stdio.h>
+#include<sys/types.h>
+#include<sys/wait.h>
+#include<stdlib.h>
+#include<signal.h>
+int main(){
+	int k=fork();
+	if(k==0){
+		printf("Parent: %d GroupID: %d\n",getppid(),getpgrp());
+//		raise(SIGINT);
+//		sleep(2);
+		printf("Help\n");
+		exit(20);
+	} else {
+		printf("I am Parent of Child: %d\n",k);
+		int status;
+		int d=wait(&status);
+		printf("Dead Child: %d, Value from it: %d Signaled: %d\n",d,WEXITSTATUS(status),WIFSIGNALED(status));
+	}
+	return 0;
+}
+
+/
+*wait() takes the address of an integer variable and returns the process ID of the completed process. Some flags that indicate the completion status of the child process are passed back with the integer pointer. One of the main purposes of wait() is to wait for completion of child processes.
+The execution of wait() could have two possible situations.
+
+If there are at least one child processes running when the call to wait() is made, the caller will be blocked until one of its child processes exits. At that moment, the caller resumes its execution.
+
+If there is no child process running when the call to wait() is made, then this wait() has no effect at all. That is, it is as if no wait() is there.
+
+If status is not NULL, wait() and waitpid() store status information in the int to which it points.
+WIFEXITED(status)	returns true if the child terminated normally, that is, by calling exit(3) or _exit(2), or by returning from main().
+
+WEXITSTATUS(status)	returns the exit status of the child. This consists of the least significant 16-8 bits of the status argument that the child specified in a call to exit() or _exit() or as the argument for a return statement in main(). This macro should only be employed if WIFEXITED returned true.
+
+WIFSIGNALED(status)	returns true if the child process was terminated by a signal.
+
+WTERMSIG(status)	returns the number of the signal that caused the child process to terminate. This macro should only be employed if WIFSIGNALED returned true.
+
+WCOREDUMP(status)	returns true if the child produced a core dump. This macro should only be employed if WIFSIGNALED returned true. This macro is not specified in POSIX.1-2001 and is not available on some Unix implementations (e.g., AIX, SunOS). Only use this enclosed in #ifdef WCOREDUMP ... #endif.
+
+WIFSTOPPED(status)	returns true if the child process was stopped by delivery of a signal; this is only possible if the call was done using WUNTRACED or when the child is being traced (see ptrace(2)).
+
+WSTOPSIG(status)	returns the number of the signal which caused the child to stop. This macro should only be employed if WIFSTOPPED returned true.
+
+WIFCONTINUED(status)	(Since Linux 2.6.10) returns true if the child process was resumed by delivery of SIGCONT.
+*/

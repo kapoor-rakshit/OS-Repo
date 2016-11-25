@@ -1,0 +1,15 @@
+#include<stdio.h>
+int main(int argc, char* argv[]){
+	printf("I am: %d, Child of: %d \n",getpid(),getppid());
+	printf("%s\n",argv[0]);
+	FILE *fp=fopen(argv[0],"r");
+	printf("%c\n",fgetc(fp));
+	fclose(fp);
+	int j=atoi(argv[1]);
+	int i;
+	for(i=1;i<=j;i++){
+		printf("%d ",i);
+	}
+	printf("\n");
+	return 0;
+}

@@ -1,0 +1,47 @@
+#include<stdio.h>
+#include<sys/types.h>
+#include<sys/wait.h>
+#include<stdlib.h>
+#include<signal.h>
+int main(){
+	int i=0;
+	for(;i<2;i++){
+		int k=fork();
+		if(k==0){
+	printf("ID: %d\tParent: %d\tGroupID: %d\n",getpid(),getppid(),getpgrp());
+			raise(SIGINT);
+			sleep(2);
+			printf("Help\n");
+			exit(20);
+			} 
+		}
+		//else 
+		{
+	//		printf("I am Parent of Child: %d\n",k);
+			int status;
+/*
+   pid_t waitpid(pid_t pid, int *status, int options);
+
+   pid(1st Argument) values can be:
+  <-1,any child process whose process group ID is equal to the absolute value of pid.
+  -1, meaning wait for any child process.
+   0,meaning wait for any child process whose process group ID is equal to that of the calling process.
+   > 0, meaning wait for the child whose process ID is equal to the value of pid.
+
+
+  options(3rd Argument):
+
+   WNOHANG, return immediately if no child has exited.
+
+   WUNTRACED, also return if a child has stopped(but not traced via ptrace(2)). Status for traced children which have stopped is provided even if this option is not specified.
+
+   WCONTINUED, (Since Linux 2.6.10) also return if a stopped child has been resumed by delivery of SIGCONT.
+			 */
+			sleep(5);
+			int d=waitpid(, &status,WNOHANG);
+			printf("Dead Child: %d, Value from it: %d Signaled: %d\n",d,WEXITSTATUS(status),WIFSIGNALED(status));
+		}
+
+	return 0;
+}
+
