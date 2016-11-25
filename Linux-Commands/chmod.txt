@@ -1,0 +1,20 @@
+chmod is used to change the permissions of files or directories.The command name chmod stands for "change mode", and it is used to define the way a file can be accessed.
+
+        Syntax     :                       chmod options permissions filename
+
+permissions defines the permissions for the owner of the file (the "user"), members of the group who owns the file (the "group"), and anyone else ("others"). There are two ways to represent these permissions: with symbols (alphanumeric characters), or with octal numbers (the digits 0 through 7).
+
+       Eg          :                     chmod u=rwx,g=rx,o=r myfile
+
+This is an example of using symbolic permissions notation. The letters u, g, and o stand for "user", "group", and "other". The equals sign ("=") means "set the permissions exactly like this," and the letters "r", "w", and "x" stand for "read", "write", and "execute", respectively. The commas separate the different classes of permissions, and there are no spaces in between them.
+
+
+      Eg           :                     chmod 754 myfile
+
+Here the digits 7, 5, and 4 each individually represent the permissions for the user, group, and others, in that order. Each digit is a combination of the numbers 4, 2, 1, and 0:
+4 stands for "read",
+2 stands for "write",
+1 stands for "execute", and
+0 stands for "no permission."
+So 7 is the combination of permissions 4+2+1 (read, write, and execute), 5 is 4+0+1 (read, no write, and execute), and 4 is 4+0+0 (read, no write, and no execute).
+
