@@ -1,0 +1,24 @@
+1. Initialization phase to set up the environment.
+
+The shell checks to see whether the file /etc/profile exists.
+The shell checks to see whether the file .profile exists in your home directory. 
+
+As soon as both of these files have been read, the shell displays a prompt − $
+
+
+2. PS1 and PS2 Variables
+
+The characters that the shell displays as your command prompt "$" default, are stored in the variable PS1.
+You can change this variable by :
+PS1=" <your symbol> "
+PS1="\u@\h:\w\#$"                          //with escape sequences      example   \# to get count of commands
+
+Escape Sequence & Description   :        https://www.tutorialspoint.com/unix/unix-environment.htm
+
+The default secondary prompt is > (the greater than sign), but can be changed by re-defining the PS2 shell variable.
+PS2=" <your symbol> "
+
+
+3. env variables
+
+example : $LOGNAME , $USER , $LANG ,      more at : https://www.tutorialspoint.com/unix/unix-environment.htm
