@@ -1,8 +1,10 @@
 whoami                                                      // prints the username associated with the current effective user ID.
 who                                                        // Report which users are logged in to the system.
 w                                                         // Show who is logged on and what they are doing.
-who | wc                                                 // gives xx yy zz      //xx is no. of lines     yy is no. of words       zz is no. of bytes
+who | wc                                                 // gives WORD COUNT xx yy zz      //xx is no. of lines     yy is no. of words       zz is no. of bytes
 who | wc -l                                             //  gives no. of lines only
+
+cd ~                                                   //to move to your home directory
 
 //To add new user say with username "R6000670"
 
@@ -36,7 +38,12 @@ uname -o, --operating-system   //print the operating system
 echo $path                     //path setting
 
 
-cat pracfile.sh > backup.txt   //copy contents from pracfile.sh to backup.txt  (ensure that backup.txt is existent)
+cat pracfile.sh > backup.txt        //copy contents from pracfile.sh to backup.txt
+cp source_file destination_file
+mv old_filename new_filename       //Rename file or a directory
+mv olddir newdir
+
+mkdir -p /tmp/amrood/test         //Make multiple directories in case not exists as we have used -p
 
 
 lscpu                          //print the cpu hardware details.
@@ -44,6 +51,8 @@ lscpu                          //print the cpu hardware details.
 
 free                         //check memory usage on linux
 
+The filename . (dot) represents the current working directory; 
+and the filename .. (dot dot) represents the directory one level above the current working directory ie parent directory.
 
 
 
