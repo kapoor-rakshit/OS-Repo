@@ -14,6 +14,7 @@
 #\v : vertical tab
 
 #All commands are given in backticks `<your command>`
+#Anything written after \ will be echoed as a stand alone ie echo "\$1200" will give output : $1200
 
 echo -e "working on substitutions \a gotta on `date`"
 
