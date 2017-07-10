@@ -22,3 +22,11 @@ PS2=" <your symbol> "
 3. env variables
 
 example : $LOGNAME , $USER , $LANG ,      more at : https://www.tutorialspoint.com/unix/unix-environment.htm
+
+
+4. uptime tells you how long the system has been running.
+   uptime gives a one-line display of the following information:
+The current time
+how long the system has been running
+how many users are currently logged on
+the system load averages for the past 1, 5, and 15 minutes.    as       03:59:57 up 20 days, 14:03,  1 user,  load avg: 0.13, 0.07, 0.15
