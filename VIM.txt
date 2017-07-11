@@ -1,4 +1,8 @@
 
 
-
 Refer this link  : https://www.tutorialspoint.com/unix/unix-vi-editor.htm
+
+:set number      : view line numbers
+:set nonumber    : hide line numbers
+
+ctrl + shift + v : paste from clipboard
