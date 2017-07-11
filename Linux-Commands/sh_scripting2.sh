@@ -13,6 +13,19 @@ echo `expr $a / $b`          #(integer division)
 echo `expr $a \* $b`         #(multiplication)
 echo `expr $a % $b`
 
+#A program to find average of n numbers with and without rounding of decimal values
+read n
+s=0
+for ((i=1;i<=$n;i++))
+do
+read k
+s=`expr $s + $k`
+done
+echo "scale=3;$s/$n"|bc -l                    #scale and bc -l together will TRUNCATE result upto required decimal place
+                                              #bc is bench calculator
+
+printf %0.3f $(echo "$s/$n"|bc -l)            #printf will ROUND up the result to higher decimal value
+
 
 #relational : All evaluation is done in [] ie [(SPACE)<your query>(SPACE)]
 
