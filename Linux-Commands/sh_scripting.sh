@@ -46,6 +46,12 @@ done
 echo "$?"                        #exit status of last command
 echo "$!"                        #process no. of last background command
 
+#IMPORTANT IN PASSING ARRAY TO FUNCTIONS
+firstvar=458
+secondvar=firstvar
+echo "${secondvar}"            #OUTPUT : firstvar
+echo "${!secondvar}"           #OUTPUT : 458     ie  indirect reference or double referenced
+
 
 #ARRAYS
 hdarr=("welcome_to_INDIA" 23 45 "INDIANS_ARE_BACK"  )      #hardcoded array, space separated
