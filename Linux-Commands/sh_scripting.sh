@@ -23,6 +23,7 @@ a="Jai Hind"                     #error
 
 echo "a is $a"                   #output : a is 10
 
+echo ${a:1:3}                    #output : start from 1 index of string and echo next 3 characters
 
 #SPECIAL VARIABLES
 echo "$$"                        #PID of current shell
@@ -46,7 +47,7 @@ done
 echo "$?"                        #exit status of last command
 echo "$!"                        #process no. of last background command
 
-#IMPORTANT IN PASSING ARRAY TO FUNCTIONS
+#DOUBLE REFERENCE IS IMPORTANT IN PASSING ARRAY TO FUNCTIONS
 firstvar=458
 secondvar=firstvar
 echo "${secondvar}"            #OUTPUT : firstvar
