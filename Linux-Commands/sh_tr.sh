@@ -16,8 +16,28 @@ echo "gotta catchem all" | tr "a-e" "Y-Z"    #we can specify range in asc order 
 tr "()" "[]" < inputfile.txt >> outputfile.txt
 
 
-# 3. Translate white-space
+# 3. Translate white-space  AND  -s option to squeeze
 
-echo "This is for testing" | tr [:space:] "@"
+echo "This i s   for     testing" | tr [:space:] "@"          #all whitespaces are translated to @
 
-echo "This is for testing" | tr -s [:space:]    # -s squeezes repetition of characters
+echo "This    i s    for testing" | tr -s [:space:] "@"       #-s squeezes repetition of characters ie multiple space is treated as one space
+
+echo "This  is  for testing" | tr -s [:space:] " "           #multiple spaces to one space and replace with " "
+
+tr -s '\n' ' ' < file.txt                                    #squeeze multiple \n to a single \n and replace \n to " " 
+
+
+# 4. -d option to delete
+
+ echo "the geek stuff" | tr -d 'thg'                        #delete characters 't' , 'h' and 'g' from given str
+ 
+ echo "my username is 432234" | tr -d [:digit:]             #delete digits from str
+ 
+ 
+ # 5. -c option to complement
+ 
+ echo "my username is 432234" | tr -cd [:digit:]            #-d remove all characters  , -c except digits
+ 
+ tr -cd [:print:] < file.txt > file.txt                     #remove all non-printable characters from a file and overwrite the file
+  
+ 
