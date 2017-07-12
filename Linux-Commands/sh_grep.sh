@@ -16,3 +16,5 @@ ls -l | grep -i -c "Jul"
 
 grep -w "the" file.txt              #searches the word "the" and echo that line, not work for "there" as it has "the" as SUBSTRING not a word
 
+grep -w "color\|rang\|rangeen" file.txt   #search for more than one keyword
+
