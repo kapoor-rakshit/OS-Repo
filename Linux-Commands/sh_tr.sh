@@ -1,6 +1,10 @@
 # tr is an UNIX utility for translating, or deleting, or squeezing repeated characters. 
 # tr stands for translate
 
+tr [:space:] " "                   #A tr command stated at top of script will be applied on subsequent commands                    
+<further commands>
+
+
 # 1. convert lower case to upper case  OR  replace characters
 
 echo "gotta grab it" | tr [:lower:] [:upper:]
