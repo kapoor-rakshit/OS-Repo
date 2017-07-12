@@ -27,3 +27,8 @@ sort -t"," -k1,2 -k3n,3 file                 #delimiter is "," acc to key col st
 # sort multiple files ie data from all files is considered together to sort on numerical values
 sort -n file1.txt file2.txt
 
+
+# -f : Sorts upper and lowercase together.
+
+
+# +x : Ignores first x fields when sorting.
