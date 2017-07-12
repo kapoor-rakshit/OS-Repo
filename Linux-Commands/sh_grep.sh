@@ -9,15 +9,10 @@
 # -l : Prints only the names of files with matching lines.
 # -c : Prints only the count of matching lines.
 # -i : Matches either upper or lowercase.
+# -w : matches by treating the "arg" as a WORD to be searched and not as a SUBSTRING of any word
 
 ls -l | grep -i -c "Jul"
 
 
-#The sort command arranges lines of text alphabetically or numerically. 
-#Options
-# -n : Sorts numerically (example: 10 will sort after 2), ignores blanks and tabs.
-# -r : Reverses the order of sort.
-# -f : Sorts upper and lowercase together.
-# +x : Ignores first x fields when sorting.
+grep -w "the" file.txt              #searches the word "the" and echo that line, not work for "there" as it has "the" as SUBSTRING not a word
 
-sort testfile.txt
