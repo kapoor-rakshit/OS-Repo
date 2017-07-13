@@ -4,7 +4,7 @@
 
 #NOTE : Delimiters can be changed as desired any character eg: use (_) as shown     :     sed 's_http://_www_' file.txt
 
-# 1. REPLACING
+# REPLACING
 sed 's/unix/linux/1' file.txt        #  "s" specifies the substitution operation. The "/" are delimiters
                                      #  "unix" is the search pattern and the "linux" is the replacement string
                                     
@@ -31,10 +31,30 @@ sed '/linux/ s/unix/centos/' file.txt   # looks for the lines which has "linux" 
 
 
 
+# DELETION
+sed '2 d' file.txt                    # d deletes 2nd line as arg 2 passed
+
+sed '5,$ d' file.txt                  # delete lines starting from 5 to end of a file
 
 
-# 2. PRINTING                        # p arg passed
+
+# PRINTING                           # p arg passed
 sed 's/unix/linux/p' file.txt        # Duplicating the replaced line with p arg passed and not replaced line printed just once
 
 sed -n 's/unix/linux/p' file.txt     # -n makes Printing only the replaced lines with p arg passed
+
+sed 'p' file.txt                     # print each line of a file two times
+
+sed -n '/unix/p' file.txt            # SAME AS   grep 'unix' file.txt        as p option used
+
+sed -n '/unix/!p' file.txt           # SAME AS   grep -v 'unix' file.txt     as used !(NOT)p
+
+sed 'y/ul/Tk/' file.txt              # SAME AS   tr "ul" "Tk"                as y option used
+
+sed '/unix/ a "Found"' file.txt      # Add a line of text after a match is found
+
+sed '/unix/ i "Found"' file.txt      # Add a line of text before a match is found
+
+sed '/unix/ c "Change line"' file.txt    # Change entire line with new text
+
 
