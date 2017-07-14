@@ -49,6 +49,8 @@ sed -n '/unix/p' file.txt            # SAME AS   grep 'unix' file.txt        as 
 
 sed -n '/unix/!p' file.txt           # SAME AS   grep -v 'unix' file.txt     as used !(NOT)p
 
+sed -n "12,22 p"                     # Prints line number 12 to 22           as p used and -n used to prevent echoing
+
 sed 'y/ul/Tk/' file.txt              # SAME AS   tr "ul" "Tk"                as y option used
 
 sed '/unix/ a "Found"' file.txt      # Add a line of text after a match is found
