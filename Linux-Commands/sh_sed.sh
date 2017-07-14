@@ -27,6 +27,8 @@ sed '1,3 s/unix/linux/' file.txt      # replaces the lines with range from 1 to 
 
 sed '2,$ s/unix/linux/' file.txt      # replaces the text from second line to last line in the file.
 
+sed "s/[A-Z]/./g"                     # replace all occurrence of [A B C D E .... Z] in a line by "."
+
 sed '/linux/ s/unix/centos/' file.txt   # looks for the lines which has "linux" and then replaces the word "unix" with "centos" on those lines only.
 
 
