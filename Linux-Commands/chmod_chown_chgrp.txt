@@ -18,8 +18,26 @@ Here the digits 7, 5, and 4 each individually represent the permissions for the 
 0 stands for "no permission."
 So 7 is the combination of permissions 4+2+1 (read, write, and execute), 5 is 4+0+1 (read, no write, and execute), and 4 is 4+0+0 (read, no write, and no execute).
 
+chmod -R 754 dirname                      // -R : recursively change permissions for all files in dir
 
 
 chown newuser file1,file2                 //"change owner" and is used to change the owner of a file.
 
-chgrp group filelist                     //"change group" and is used to change the group of a file.
+chown -R newuser dirname                 // -R : "change owner" to newuser for entire dir
+
+
+chgrp newgroup filelist                     //"change group" and is used to change the group of a file.
+
+chgrp -R newgroup dirname                  // -R : "change group" to newgroup for entire dir
+
+        
+            // umask is used set default permissions to a new file created
+umask                                     // returns default permissions of new file that are not allowed , eg : 0022
+                                          // so allowed permissions are 777 - 022 = 755
+                                          
+umask -S                                  // returns allowed permissions u=rwx,g=rx,o=rx
+
+umask 0033                               // sets permissions to be denied
+                                         // first 0 is for octal and other three char gives owner, group, others perm denial
+                                         
+                                         
