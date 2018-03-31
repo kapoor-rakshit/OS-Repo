@@ -34,14 +34,12 @@ wc content.txt                               #shows filename with results
 #   finish
 
 
-#DISCARD OUTPUT : To execcute the command but donot show the OUTPUT on screen or file
+# REDIRECTION : To execcute the command but donot show the OUTPUT on screen (STDOUT) or file
 
 echo "`uptime`" > /dev/null            #/dev/null is a file that discards all input
 
-echo "`upt`" > /dev/null               #STDERR will be displayed but not STDOUT
+echo "`upt`" > /dev/null               #STDERR will be redirected but not STDOUT as command not found
 
-echo "`upt`" > /dev/null 2>&1          #STDERR and STDOUT both prevented from display  (not working)
+echo "hello printing STDOUT and STDERR" &> output_and_err.txt     # & : redirect both STDOUT and STDERR
 
-echo "hello printing STDOUT as STDERR" 1>&2     #Make STDOUT on STDERR                 (not working)
-
-"sh_fileIO.sh" 46L, 1478C                                                                                                                  
+                                                                                                               
