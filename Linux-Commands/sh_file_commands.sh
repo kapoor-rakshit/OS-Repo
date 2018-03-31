@@ -44,7 +44,8 @@
 
 
 
-	mkdir {firstdir , seconddir}         # multiple dirs created with a single mkdir command
+	mkdir {firstdir,seconddir}         # multiple dirs created with a single mkdir command   
+	                                   # NOTE : No space bw dirname and ','
 
 
 
