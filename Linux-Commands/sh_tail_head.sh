@@ -4,6 +4,11 @@ tail -n 20 file.txt                          # Outputs last 20 lines of file
 
 tail -c 20 file.txt                          # Outputs last 20 characters of file
 
+tail +30 file.txt                            # beginning with 30th line, print all lines to end
+
+tail -f messages.log                         # read and display message simultaneouly as some other prog is writing to it
+                                             # to abort    :    ctrl + c
+
 
 
 # head outputs the first part of files.
