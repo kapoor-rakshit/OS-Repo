@@ -25,7 +25,7 @@ wc -l <<finish                        # "finish" is a delimiter which can be sin
                                       # and without any space bw "<<" and "finish" (delim)
 Hello working at WIPRO
 What abt you ?
-finish                                 # Terminate prog , OUTPUT : 2   no. of lines, as of command wc -l
+finish                                 # Terminate writing prog , OUTPUT : 2   no. of lines, as of command wc -l
 
 
 # A session can be run with vi editor and save input in the file
@@ -35,7 +35,7 @@ i
 written using HERE doc
 ^[
 ZZ
-finish
+END                                   # Terminate writing prog as delim typed
 
 
 # REDIRECTION : To execcute the command but donot show the OUTPUT on screen (STDOUT) or file
