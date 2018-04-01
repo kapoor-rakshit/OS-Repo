@@ -79,22 +79,24 @@ test -s filename                                     # check if file exists and 
 
 
 #DECISION MAKING
-#1) if [] then.... elif [] then..... fi
+# 1) if [] then.... elif [] then..... fi
 
-#2) case....esac
+# 2) case....esac
 
 a="India"
 
 case $a in
-	"INDIA")echo "INDIA in upper";;
-	"india")echo "india in lower";;
-	*)echo "Nothing found";;	
+	"INDIA") echo "INDIA in upper"
+	         echo "entered INDIA" ;;
+	"india") echo "india in lower" ;;
+	*) echo "Nothing found"
+	   echo "INVALID INPUT" ;;	
 esac
 
 
 
 #LOOPS
-#1) for loop  :  for (()) do.....done 
+# 1) for loop  :  for (()) do.....done 
 for ((i=1;i<=8;i++))
 do
 	echo -n "$i "                     #prevents echo to generate newline \n character
@@ -135,10 +137,11 @@ done
 select DRINK in tea cofee water juice appe all none
 do
 case $DRINK in
-	"tea" | "cofee" | "water" | "all")echo "Go to canteen";;
-        "juice" | "appe")echo "Available at home";;
-	"none")break ;;
-	*) echo "ERROR: Invalid selection";;						    
+	"tea" | "cofee" | "water" | "all") echo "Go to canteen";;
+        "juice" | "appe") echo "Available at home";;
+	"none") break ;;
+	*) echo "ERROR: Invalid selection"
+	   echo "TRY AGAIN";;						    
 esac 
 done
 		                                                                            
