@@ -27,16 +27,16 @@ echo "scale=3;$s/$n"|bc -l                    #scale and bc -l together will TRU
 printf %0.3f $(echo "$s/$n"|bc -l)            #printf will ROUND up the result to higher decimal value
 
 
-#relational : All evaluation is done in [] ie [(SPACE)<your query>(SPACE)]
+#relational : All evaluation is done in [] (test command) ie [(SPACE)<your query>(SPACE)]
 
 #Used with conditional statements : ie    if [] then....  elif [] then....  else....   fi
 
-#-eq : equal      (==)
-#-ne : not equal  (!=)
-#-gt : greater (>)
-#-lt : lesser  (<) 
-#-ge : greater or equal (>=)
-#-le : lesser or equal  (<=)
+# -eq : equal      (==)             usage   :    test str1 == str2      OR      [ str1 -eq str2 ]
+# -ne : not equal  (!=)
+# -gt : greater (>)
+# -lt : lesser  (<) 
+# -ge : greater or equal (>=)
+# -le : lesser or equal  (<=)
 
 echo `expr $a == $b`             #output : 0 (false)
 echo `expr $a != $b`             #output : 1 (true)
@@ -54,23 +54,28 @@ fi
 
 #boolean
 
-#-o : logical OR  (||)
-#-a : logical AND (&&)
-#!  : negate      (~)
+# -o : logical OR  (||)
+# -a : logical AND (&&)
+# !  : negate      (~)
 
 
 #string
 #if a="kapoor" and b="github"
 
-#=  : equal                [ $a = $b ]
-#!= : not equal            [ $a != $b ]
-#-z : zero len             [ -z $a ]
-#-n : nonzero len          [ -n $a ]
-#   : str if nonzero len   [ $a ]
+# =  : equal                [ $a = $b ]
+# != : not equal            [ $a != $b ]
+# -z : zero len             [ -z $a ]      OR      test -z $a
+# -n : nonzero len          [ -n $a ]
+#    : str if nonzero len   [ $a ]
 
 
 #file test operators  :  https://www.tutorialspoint.com/unix/unix-basic-operators.htm
 
+test -e filename       #OR      [ -e filename ]      # check if file exists
+test -f filename                                     # check if it is a regular file
+test -d filename                                     # check for directory
+test -r filename                                     # check if file exists and read permission is granted
+test -s filename                                     # check if file exists and if file size is non zero
 
 
 #DECISION MAKING
