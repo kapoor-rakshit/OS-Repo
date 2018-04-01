@@ -8,6 +8,7 @@
 
 a=10                              #variable
 read b                            #read from std input
+read -p "ENTER VALUE OF b :" b    #generates message with reading of input
 readonly a                        #make the variable unchangeable, an error occurs while trying to change the value
 
 c=15
@@ -30,9 +31,18 @@ echo "$$"                        #PID of current shell
 
 echo "$0"                        #filename of current script
 echo "$1"                        #$1, $2,... so on refers to args with which script was invoked
+
+#shift functionality
+echo "$1"                        #first arg
+shift
+echo "$1"                        #second arg, is now at 1 index, as "shift" left shifts args
+
 echo "$# arg passed"             #number of arguments passed
 echo $*
 echo $@
+
+ls -l "$*"                       #input args are file use "$*"/"$@" in double quotes for command to act on
+ls -l "$@"                       #eg : ./file.sh argfile.txt "my file.txt"     NOTE : File name with space is in ""
 
 for arg in $*                    #takes the entire list as one argument with spaces between
 do
