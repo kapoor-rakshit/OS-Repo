@@ -5,10 +5,14 @@ Refer this link  : https://www.tutorialspoint.com/unix/unix-vi-editor.htm
 MODES IN VIM
 NORMAL MODE : Default mode, press esc key to return to normal mode from any other mode.
 COMMAND MODE : Press ":" (colon) to enter into command mode, when in normal mode.
-INSERT MODE : Press "i" to enter into insert mode.  "a" for append mode.
+INSERT MODE : Press "i" to enter into insert mode.
+                    "a" for append mode, to append after already existing text.
+                    "o" for entering text in new line below from cur pos
+                    "O" for entering text in new line above from cur pos
 
 OPENING FILE
 vim [options] filename
+vim +84 filename           // open file with cursor at line number 84
 
 LINE/WORD TRAVERSAL
 h : move 1 char left
@@ -19,6 +23,7 @@ l : move 1 char right
 w : move 1 word next
 b : move 1 word back
 e : end of cur word
+2e : end of 2 words from cur pos
 0 : beginning of cur line
 $ : end of cur line
 H : beginning of screen, col 1
@@ -54,6 +59,27 @@ SAVE/QUIT
 :q! : quit without saving
 :w newfile : SAVE AS newfile option, cur file + newfile both exists
 
+SEARCH
+:set hlsearch -    highlight the text which matches the search
+/text         -    forward search, from top to bottom of file
+?text         -    backward search, from bottom to top of file
+n             -    show next matched text in file
+N             -    previous match in file
+/<up/down key> -   previous searches in history
+*             -    find word under cursor, forward direction
+#             -    find word under cursor, backward direction
+%             -    find closing block bracket of bracket under cursor
+
+SYNTAX HIGHLIGHT
+:syn on          - highlight keywords of that prog lang
+
+WINDOW SPLIT
+:sp $HOME/.vimrc  - splits vim screen to open newfile
+
+CONFIG FILE
+.vimrc    -    a hidden file located at $HOME/.vimrc is used to config settings for user
+
+LINE NUMBER
 :set number      : view line numbers
 :set nonumber    : hide line numbers
 
