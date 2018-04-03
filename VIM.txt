@@ -4,18 +4,20 @@ Refer this link  : https://www.tutorialspoint.com/unix/unix-vi-editor.htm
 
 MODES IN VIM
 NORMAL MODE : Default mode, press esc key to return to normal mode from any other mode.
-COMMAND MODE : Press ":" (colon) to enter into command mode.
+COMMAND MODE : Press ":" (colon) to enter into command mode, when in normal mode.
 INSERT MODE : Press "i" to enter into insert mode.  "a" for append mode.
 
 OPENING FILE
 vim [options] filename
 
+LINE/WORD TRAVERSAL
 h : move 1 char left
 10h : move 10 chars left
 j : move 1 char down
 k : move 1 char up
 l : move 1 char right
 w : move 1 word next
+b : move 1 word back
 e : end of cur word
 0 : beginning of cur line
 $ : end of cur line
@@ -26,17 +28,31 @@ ctrl + f : move one screen
 gg : move to first line of file
 G : move to last line of file
 23G : move to 23rd line of file
+:12 : move to 12th line of file
+
+DELETION
 x : delete a char
 dw : delete word with space following that word
 de : delete word to end but not the following space
+db : delete prev word
 dd : delete line
+10dd : delete 10 lines
 u : undo
+
+YANK AND PASTE
 y : yank char
 yw : yank word with following space
 ye : yank word without space
 yy : yank (copy) line
 p : paste yanked content
 P : paste on line above cur cursor pos
+
+SAVE/QUIT
+:w : save
+:q : quit
+:wq : save and quit
+:q! : quit without saving
+:w newfile : SAVE AS newfile option, cur file + newfile both exists
 
 :set number      : view line numbers
 :set nonumber    : hide line numbers
