@@ -60,10 +60,29 @@ unset varname   :   unexport a variable
 
 
 8. exit status
-checked using `echo $?`
+checked using `echo $?` the exit status of last command executed
 
 0   : ok
 1   : error
 2   : wrong usage
 126 : not executable...permission denied
 127 : command not found
+
+
+9. SHELL CONFIG
+a file home/.bashrc found at HOME dir is to be configured for user defined settings of shell.
+eg : echo "Today is `date`"
+
+
+10. ALIAS NAMING
+commands can be aliased with a simpler ver.
+
+alias ..="cd .."              # "cd .." aliased as .. , here .. performs same as cd ..
+unalias ..                    # remove alias name
+
+
+11. HISTORY
+~/.bash_history               # file contains history of all commands
+!-n                           # execute nth command from history
+!string                       # execute most recent command matching string as a substring or whole of command
+
