@@ -19,14 +19,51 @@ The default secondary prompt is > (the greater than sign), but can be changed by
 PS2=" <your symbol> "
 
 
-3. env variables
+3. env command
 
-example : $LOGNAME , $USER , $LANG ,      more at : https://www.tutorialspoint.com/unix/unix-environment.htm
+env
+# It can be used to print a list of the current environment variables, or to run another program in a custom environment without modifying the current one.
+example : $LOGNAME , $USER , $LANG , $SHELL, $PATH      more at : https://www.tutorialspoint.com/unix/unix-environment.htm
+
+env --version                                           # Display version information and exit.
 
 
-4. uptime tells you how long the system has been running.
+4. uptime command
+   uptime tells you how long the system has been running.
    uptime gives a one-line display of the following information:
 The current time
 how long the system has been running
 how many users are currently logged on
-the system load averages for the past 1, 5, and 15 minutes.    as       03:59:57 up 20 days, 14:03,  1 user,  load avg: 0.13, 0.07, 0.15
+the system load averages for the past 1, 5, and 15 minutes.  as  03:59:57 up 20 days, 14:03, 1 user, load avg:0.13,0.07,0.15
+
+
+5. Some hacks
+
+ctrl + a   :   move to beginning of command on terminal
+ctrl + e   :   move to end of command on terminal
+alt + .    :   use args of prev command in history as args to current command, repeated press changes args.
+
+6. set command
+
+set -o           :   check status of shell options
+set -o vi        :   -o : set on ,  editor mode as vi
+set +o noclobber :   +o : set off , noclobber option used to prevent overwriting of files
+set -x           :   -x : set on xtrace
+
+
+7. export command
+#  the export command marks an environment variable to be exported with any newly forked child processes and thus it allows a child process to inherit all marked variables.
+
+export          :   view all the exported variables.
+export -p       :   -p : view all exported variables on current shell
+unset varname   :   unexport a variable
+
+
+8. exit status
+checked using `echo $?`
+
+0   : ok
+1   : error
+2   : wrong usage
+126 : not executable...permission denied
+127 : command not found
