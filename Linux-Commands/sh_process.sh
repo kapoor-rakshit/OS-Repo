@@ -48,3 +48,14 @@ pmap 9994 9998       # PID or unique process IDs of running process
 
 # top
 # top command is used to show all the running processes within your Linux environment.
+top     # output  :  uptime , no. of users , load avg , tasks , memory
+        # the highlighted row(s) is/are currently running process
+
+# shift + m       : sort by memory
+# shift + p       : sort by %cpu
+# shift + t       : sort by time
+# x               : highlight coloumn with which sorted
+# z               : toggle color
+# q               : exit
+# h               : help
+
