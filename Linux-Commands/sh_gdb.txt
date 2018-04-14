@@ -1,0 +1,31 @@
+gdb  :  GNU Debugger for debugging C/C++ code files
+
+binary file generated  :  gcc -g -o filename filename.c    # -g allow for debugging, filename to be used for gdb
+
+gdb [options] filename [corefile | PID]
+
+
+gdb ./filename                :  load file "filename" in gdb
+
+gdb filename core             :  core file for a program
+
+gdb filename PID              :  gdb for currently running process with PID
+
+
+
+once inside gdb we have
+
+break                         :  insert breakpoint at currently visible line to debugger
+break funcname                :  insert breakpoint at function "funcname"
+break filename.c:119          :  insert breakpoint at line no. 119
+run                           :  run loaded program , stop execution at breakpoint
+next   or    n                :  execution resumes from breakpoint
+print varname                 :  value of varname just once
+display varname               :  add watchpoint for variable "varname" whenever execution resumes/initiated
+step   or   s                 :  enter context inside next statement (function defn)
+list                          :  source code upto which execution done.
+backtrace  or  bt             :  shows trace of context (bottom up, 0 being most recent)
+up                            :  move to parent context in backtrace
+down                          :  move to child context in backtrace (towards most recent)
+quit                          :  quit the debugger
+
