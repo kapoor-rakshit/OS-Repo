@@ -46,9 +46,10 @@
 
 	mkdir  firstdir,seconddir          # multiple dirs created with a single mkdir command   
 	                                   # NOTE : No space bw dirname and ','
+	mkdir  firstdir seconddir          # Same as ABOVE
 
         mkdir -p dir/subdir1/subdir2       # (LINUX)   
-	                                   # -p : allows creation of dir/subdirs
+	                                    # -p : allows creation of dir/subdirs
 					   
 	 mkdir dir\subdir1\subdir2          # (WINDOWS)      allows creation of dir/subdirs
                                            #                NOTE : Use of '\' instead of '/' in WINDOWS
