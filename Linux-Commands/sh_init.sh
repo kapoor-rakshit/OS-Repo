@@ -1,5 +1,9 @@
 #!/bin/bash
 
+#  NOTE : params in [....] are optional
+
+
+
 # to run bash file use    sudo bash filename.sh
 
 
