@@ -23,3 +23,18 @@ gedit &                                             # opens gedit but returns co
 #                                                              2 8.81
 xgraph filename.txt
 
+
+
+# wget command
+# GNU Wget is a computer program that retrieves content from web servers. It is part of the GNU Project. 
+# Its name derives from World Wide Web and get. It supports downloading via HTTP, HTTPS, and FTP. 
+# Its features include recursive download, conversion of links for offline viewing of local HTML, and support for proxies.
+
+wget <URL>
+
+
+
+# Reload .bashrc
+# If we make changes to .bashrc, how to reload it without logging out and back in ?
+source ~/.bashrc
+
