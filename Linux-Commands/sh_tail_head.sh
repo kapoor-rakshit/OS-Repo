@@ -1,4 +1,5 @@
 # tail outputs the last part, or "tail", of files.
+# By default, tail returns the final 10 lines of each file name that is provided to it.
 
 tail -n 20 file.txt                          # Outputs last 20 lines of file
 
@@ -14,6 +15,7 @@ ls -lh | tail -n 20                          # ls piped to last 20 lines of info
 
 
 # head outputs the first part of files.
+# By default, head returns the first 10 lines of each file name that is provided to it.
 
 head -n 20 file.txt                          # Outputs first 20 lines
 
