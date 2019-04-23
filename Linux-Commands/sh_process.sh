@@ -8,6 +8,8 @@ ps       # output  :   PID   TTY   Time   Command
 ps -A   # To view all the running processes
 ps -e   # To view all the running processes
 
+ps -f   # To view full-format listing
+
 ps T    # to see only the processes associated with this terminal
 
 ps -p 1234,4567   # -p : process with specified PIDs (multiple values are comma separated)
