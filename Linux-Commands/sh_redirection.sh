@@ -44,7 +44,7 @@ echo "`uptime`" > /dev/null            #/dev/null is a file that discards all in
 
 echo "`upt`" > /dev/null               #STDERR will be redirected but not STDOUT as command not found
 
-echo "hello printing STDOUT and STDERR" &> output_and_err.txt     # & : redirect both STDOUT and STDERR to same file
+echo "hello printing STDOUT and STDERR" >> output_and_err.txt 2>&1    # & : redirect both STDOUT and STDERR to same file
 
-echo "testing" 1> output.txt 2> err.txt                           # STDOUT to output.txt and STDERR to err.txt 
+echo "testing" 1> output.txt 2> err.txt                               # STDOUT to output.txt and STDERR to err.txt 
                                                                                                                
