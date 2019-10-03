@@ -38,3 +38,21 @@ wget <URL>
 # If we make changes to .bashrc, how to reload it without logging out and back in ?
 source ~/.bashrc
 
+
+
+# netstat
+# REFERENCE : https://www.lifewire.com/netstat-command-2618098
+# The netstat command, meaning network statistics,
+# is a Command Prompt command used to display very detailed information about how your computer is communicating with other computers or network devices.
+netstat -an | grep ":<port_number>"         # -n : Show numerical addresses instead of trying to determine symbolic host, port or user names.
+                                            # -a : Show both listening and non-listening (for TCP this means established connections) sockets.
+                                            
+                                            
+# lsof
+# REFERENCE : https://www.geeksforgeeks.org/lsof-command-in-linux-with-examples/
+# lsof command stands for List Of Open File. This command provides a list of files that are opened. 
+# Basically, it gives the information to find out the files which are opened by which process.
+lsof -u username                           # List all files opened by a user
+lsof –i:<port_number>                      # Files opened by network connections
+
+
