@@ -1,0 +1,125 @@
+
+# REFERENCE : https://www.ostechnix.com/a-beginners-guide-to-cron-jobs/
+#           : https://www.computerhope.com/unix/ucrontab.htm
+#           : https://crontab.guru
+
+
+# Cron is utility in Unix-like operating system. It reads the crontab and executes the commands at the right time.
+# It's named after Kronos, the Greek god of time.
+# These scheduled commands or tasks are known as “Cron Jobs”.
+# Cron is used for running scheduled backups, monitoring disk space, deleting files (for example log files) periodically, running system maintenance tasks and a lot more.
+# Each user on your system can have a personal crontab.
+
+
+# Crontab files are located in /var/spool/ (or a subdirectory such as /var/spool/cron/crontabs),
+# but they are not intended to be edited directly. Instead, they are edited by running crontab.
+
+
+
+# display contents of crontab file of specific user/current user cron jobs
+  $ sudo crontab -u <username> -l
+  $ crontab -l
+
+# edit contents of crontab file of specific user/current user cron jobs
+  $ sudo crontab -u <username> -e
+  $ crontab -e
+
+# Remove the current crontab. effectively un-scheduling all crontab jobs.
+  $ crontab -r
+
+# confirmation prompt before removing the crontab
+  $ crontab -i
+
+# Load the crontab data from the specified file
+  $ crontab "<filepath>"
+
+# Load the crontab data from the standard input , here filepath is given as "-"
+  $ crontab "-"
+
+
+
+# CONTENTS of CRONTAB
+  # The cron daemon checks the contents of crontab once every minute to check if anything matches.
+
+
+  # An environment setting line in the crontab can set environment variables for whenever cron runs a job.
+  # Some environment variables are set automatically by cron. Not every system's crontab can include environment settings.
+  # eg: SHELL is set to /bin/sh.
+
+
+  # Configuration Files
+  # /etc/cron.allow	   : If this file exists, users must be listed in this file to be able to run cron jobs.
+  # /etc/cron.deny	   : If this file exists, users must not be listed in this file to be able to run cron jobs.
+  # /etc/cron.d/       : It contains PAM (pluggable authentication module) file to set up users to use/deny crontab and system cron jobs. 
+  #            If neither configuration file exists, only the superuser may run cron jobs.
+
+
+  # Syntax  :  * * * * * <command_to_execute>
+  # Minute(0-59) Hour(0-23) Day_of_month(1-31) Month(1-12) Day_of_week(0-6 , 0 or 7 both are Sunday | or use names) <command_to_execute>
+
+  # Names can also be used for the "month" and "day of week" fields. 
+  # Use full or first three letters of the particular day or month (case doesn't matter). Ranges or lists of names are not allowed.
+  # So it's always better to use 1-31 for day_of_month param or 0-6 for day_of_week param.
+
+  # Percent-signs (%) in the command, unless escaped with backslash ie (\%), will be changed into newline characters,
+  # and all data after the first % will be sent to the command as standard input.
+
+
+  # * : first through last for that parameter | *
+  # - : range | specified range is inclusive | 8-11
+  # , : list  | list can be set of comma separated numbers or ranges | 1,2,5,9  OR  0-4,6,8-12
+  # / : step  | increment in step value | 5-25/3 ie 5, 8, 11, 14,...,23  OR  */3 ie first through last in steps of 3
+  
+
+  # EXAMPLES
+  # To run a cron job at every minute
+  * * * * * <command-to-execute>
+
+  # To run cron job at every 5th minute | if current time is 10:10, the next job will run at 10:15, 10:20, 10:25 and so on
+  */5 * * * * <command-to-execute>
+
+  # To run a cron job every hour at minute 30 | job will run at 10:30, 11:30, 12:30 ...
+  30 * * * * <command-to-execute>
+
+  # To run cron job three times every hour, at minute 0, 14, 20 | job will run at 10:00 and 10:14 and 10:20
+  0,14,20 * * * * <command-to-execute>
+
+  # Run a job every hour (ie at minute 0)
+  0 * * * * <command-to-execute>
+
+  # Run a job every 2 hours
+  0 */2 * * * <command-to-execute>
+
+  # At 22:00 on day-of-month 8 and on Saturday.” ie every Saturday plus 8,10 date of month wether it is Saturday or not
+  0 22 8,10 * 6 <command-to-execute>
+
+  # At 12:01 AM, every Monday in January | NOTE 12 AM is 00 in hours
+  01 00 * Jan Monday /home/melissa/backup.sh
+
+  # Run a job every Sunday (0 or Sunday or Sun) , this will run at 00:00
+  0 0 * * SUN <command-to-execute>
+
+  # Run a job on every day-of-week from Monday through Friday i.e every weekday
+  0 0 * * 1-5 <command-to-execute>
+
+  # Run once, at startup
+  @reboot <command-to-execute>
+
+  # Run once a year
+  @yearly <command-to-execute>
+  @annually <command-to-execute>
+
+  # Run once a month
+  @monthly <command-to-execute>
+
+  # Run once a week
+  @weekly <command-to-execute>
+
+  # Run once a day
+  @daily <command-to-execute>
+  @midnight <command-to-execute>
+
+  # Run once an hour
+  @hourly <command-to-execute>
+
+
