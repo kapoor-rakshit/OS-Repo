@@ -1,5 +1,6 @@
 //link command
 A link is an entry in your file system which connects a filename to the actual bytes of data on the disk.
+The `link` command thus creates a hard link.
 More than one filename can "link" to the same data.The general form of the link command is: "link filename linkname".
 Our first argument is the name of the file whose data we're linking to; the second argument is the name of the new link we're creating.
  
@@ -17,13 +18,14 @@ We can still access that data as long as there is a link to it.
 This is important to know when you're removing files — "removing" a file just makes the data inaccessible by unlink-ing it.
 The data still exists on the storage media, somewhere, inaccessible to the system, and that space on disk is marked as being available for future use.
 
+NOTE : Only super users can create hard links to directories 
 
 
 //ln command
-
-ln creates links between files.ln creates a link to file TARGET with the name LINKNAME.
-If LINKNAME is omitted, a link to TARGET is created in the current directory, using the name of TARGET as the LINKNAME.
-ln creates hard links by default, or symbolic links if the -s (--symbolic) option is specified. When creating hard links, each TARGET must exist.
+`ln` by default, creates a hard link like `link` does.
+However `ln` is capable of creating symbolic links if the -s (--symbolic) option is specified with `ln`.
+If LINKNAME is omitted, a link to TARGET is created in the current directory, using the name of TARGET as the LINKNAME.  
+When creating hard links, each TARGET must exist.
 
                          
                                      Eg:-    ln -s {target-filename} {symbolic-filename}
@@ -35,50 +37,23 @@ ln creates hard links by default, or symbolic links if the -s (--symbolic) optio
 Symbolic links, sometimes called "soft" links, are different than "hard" links. 
 Instead of linking to the data of a file, they link to another link. 
 So in the example above, file2.txt points to the link file1.txt, which in turn points to the data of the file.
-This has several potential benefits. For one thing, symbolic links (also called "symlinks" for short) can link to directories. 
-Also, symbolic links can cross file system boundaries, so a symbolic link to data on one drive or partition can exist on another drive or partition.
-if we remove file1.txt:
-                          rm file1.txt
 
-This error message might be confusing at first, because file2.txt still exists in your directory. 
-It's a broken symlink, however — a symbolic link which points to something that no longer exists. 
+now, if we remove file1.txt:
+                          $ rm file1.txt
+and want to see contents using our symlink file:
+                          $ cat file2.txt
+it will show an error : "cat: file2.txt: No such file or directory".
+Because it's a broken symlink, a symbolic link which points to something that no longer exists. 
 The operating system tries to follow the symlink to the file that's supposed to be there (file1.txt), but finds nothing, and so it returns the error message.
 
 Symbolic links are a useful way to make shortcuts to long, complicated pathnames. For instance, this command:
-
-                        ln -s documents/work/budgets/Engineering/2014/April aprbudge
-
+                          $ ln -s documents/work/budgets/Engineering/2014/April aprbudge
 ...will save us a lot of typing; now, instead of changing directory with the following command:
-
-                        cd documents/work/budgets/Engineering/2014/April
-
+                          $ cd documents/work/budgets/Engineering/2014/April
 ...we can do this, instead:
-
-                        cd aprbudge
-
-Here are the options that can be passed to the ln command.
-
---backup[=CONTROL]	Use this option to additionally create a backup of each existing destination file. 
-The style of backup is optionally defined by the value of CONTROL. See below for more information.
-
-About The --backup Option
-
-When using the --backup (or -b) option, the default file suffix for backups is '~'. You can change this, however, using the --suffix option or setting the SIMPLE_BACKUP_SUFFIX environment variable.
-The CONTROL argument to the --backup option specifies the version control method. Alternatively, it can be specified by setting the VERSION_CONTROL environment variable. Here are the values to use for either one:
-
-none, off	never make backups (even if --backup is given)
-
-numbered, t	make numbered backups.
-
-existing, nil	numbered if numbered backups exist, simple otherwise.
-
-simple, never	always make simple backups.
-
-If you use -b instead of --backup, the CONTROL method is always simple.
-If you specify the -s option (which symlinks), ln ignores the -L and -P options. 
-Otherwise (if you are making hard links), the last option specified controls behavior when a TARGET is a symbolic link. The default is to act as if -P was specified.
-
-
+                          $ cd aprbudge
+                          
+NOTE : symbolic link to a directory is not actually a directory: it's a file that points to a directory.
 
 
 -b	This functions like --backup, but you cannot specify the CONTROL; the default style (simple) is used.
