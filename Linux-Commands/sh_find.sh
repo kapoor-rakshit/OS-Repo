@@ -6,17 +6,26 @@
 
 # usage:  find [options] path [expressions]
 
+find                                                      # running command without any options lists all files in current and sub directories
 
-find /home/usr -name "*.html" -print                      # name like "*.html"
+find -maxdepth 2                                          # -maxdepth : specifies how many sub directories (including current dir) it can descend. -maxdepth 1 means only cur dir.
 
-find /home/usr -type f -name "ch[0-9][0-9].pdf" -print    # -type "d" for dir, "f" for regular files
+find -empty                                               # -empty : empty files
 
-find -user usrname                                       # Find every file under cur dir owned by user "usrname".
+find ! -empty                                             # ! : negate , i.e. here in example other than empty files
 
-find -mtime +60                                          # files modified more than 60 days ago
+find -perm 0600                                           # -perm : files that are set with permission 0600 (octal)
 
-find -mtime 0
+find -size +1000c                                         # -size : files that are larger than 1000 bytes
 
-# files which have been modified in the last twenty-four hours.
-# This command works this way because the time since each file was last modified is divided by 24 hours and any remainder is discarded.
+find /home/usr -name "*.html"                             # -name : use of regex "*.html"
+
+find /home/usr -type f -name "ch[0-9][0-9].pdf"           # -type : "d" for dir, "f" for regular files
+
+find -user usrname                                        # -user : Find every file under cur dir owned by user "usrname".
+
+find -mtime +60                                           # files modified more than 60 days ago
+find -mtime 0                                             # files which have been modified in the last twenty-four hours.
+                                                          # This command works this way, (initialization time when `find` is initialized (run) - file modification time) / 86400
+                                                          # any remainder is discarded.  +n More than n | n Exactly n | -n Less than n.
 
