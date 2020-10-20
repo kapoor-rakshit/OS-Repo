@@ -1,10 +1,13 @@
 #!/bin/bash
 # NOTE : params in [....] are optional
+# NOTE : each directory has two special files '.' and '..'
+         '.'  is current directory
+	 '..' is parent directory of current directory
 
-	ls                    # list files in cur dir
+	ls                    # list files in cur dir , default sorting followed is alphabetical
 
 	ls -l                 # -l : long listing of files in dir
-	     # output : 'file_type''file_perms''no._of_alias(links)''owner''group''size(bytes)''timestamp''file_name'
+	                      # output : 'file_type''file_perms''no._of_alias(links)''owner''group''size(bytes)''timestamp''file_name'
 
 	ls -a                 # -a : show hidden files
 
@@ -24,23 +27,27 @@
 
 
 
-	cp Untitled1 Untitled5.cpp proj      # copy "src_file1" "src_file2" "dest_loc (dir)"  # last arg is destination
+	cp Untitled1 Untitled5.cpp proj      # copy "src_file1" "src_file2" "dest_loc (dir)"  # last arg is destination in case multiple files specified
 
-	cp Untitled1 Untitled1.c             # copy "src_file" "dest_file"
+	cp Untitled1 Untitled1.c             # copy "src_file" "dest_file" , overwrites "dest_file" if already exists
+	
+	cp -i Untitled1 Untitled1.c          # -i : interactive mode , confirm prompt before overwriting "dest_file" if already exists
 
 	cp Untitled5.cpp ../Programs         # parent dir accessed using ../<dir>/<dir>
 
 	cp -p Untitled5.cpp proj             # -p : preserve original timestamp of copied file
 
-	cp -rp SnackDown proj                # -r : recursive copy , to copy dir to another dir
+	cp -rp SnackDown proj                # -r : recursive copy , to copy dir to another dir , if destination dir does not exist it gets created
 
 
 
-	mv Untitled5.cpp Untitled1 OS/       # move files to another dir , no copy , preserves timestamp
+	mv Untitled5.cpp Untitled1 OS/       # move files to another dir , no copy , preserves timestamp , overwrites if file already exist in destination
+	
+	mv -i Untitled5.cpp Untitled1 OS/    # -i : interactive mode , confirm prompt before overwriting in destination dir
 
 	mv SnackDown Chemistry ../           # move directories , last arg is destination
 
-	mv BTech Degree                      # if destination not found then rename "file/dir" to "destination name"
+	mv BTech Degree                      # if destination not found then rename "file or dir" to "destination name"
 
 
 
