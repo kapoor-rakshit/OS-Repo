@@ -7,5 +7,7 @@
 # The hangup (HUP) signal, which is normally sent to a process to inform it that the user has logged off (or "hung up"), 
 # is intercepted by nohup, allowing the process to continue running.
 
-nohup COMMAND
+# & returns control back to terminal
+
+nohup <UNIX_COMMAND> &
 
