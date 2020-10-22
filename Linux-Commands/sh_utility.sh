@@ -16,6 +16,10 @@ gedit &                                             # opens gedit but returns co
 
 
 
+sudo fuser <PORT_NUMBER>/tcp                        # to find PID and other details of process running on particular PORT_NUMBER
+
+
+
 # GRAPH PLOT
 # xgraph is a utility to plot graphs depending on values in "filename.txt" as
 #                                                            xval yval
