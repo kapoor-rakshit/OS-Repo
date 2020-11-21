@@ -125,3 +125,20 @@ Super block - contains description about file system.
 Inode block - contains inode entries which has attributes of files or directories they correspond to
 Data block  - contains file content
 
+
+13. UPDATE / UPGRADE
+In short executing “sudo apt-get update” fetches you a list of packages for all of your repositories and PPA’s and make sure it is up to date. 
+While “sudo apt-get upgrade” does an actual software upgrade.
+a.  $ sudo apt-get update
+update is used to resynchronize the package index files from their sources. 
+The indexes of available packages are fetched from the location(s) specified in /etc/apt/sources.list. 
+For example, when using a Debian archive, this command retrieves and scans the Packages.gz files, so that information about new and updated packages is available. 
+An update should always be performed before an upgrade or dist-upgrade.
+
+b.  $ sudo apt-get upgrade
+upgrade is used to install the newest versions of all packages currently installed on the system from the sources enumerated in /etc/apt/sources.list. 
+Packages currently installed with new versions available are retrieved and upgraded; 
+under no circumstances are currently installed packages removed, or packages not already installed retrieved and installed.
+New versions of currently installed packages that cannot be upgraded without changing the install status of another package will be left at their current version.
+An update must be performed first so that apt-get knows that new versions of packages are available.
+
