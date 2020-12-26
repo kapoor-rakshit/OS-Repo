@@ -142,3 +142,23 @@ under no circumstances are currently installed packages removed, or packages not
 New versions of currently installed packages that cannot be upgraded without changing the install status of another package will be left at their current version.
 An update must be performed first so that apt-get knows that new versions of packages are available.
 
+
+14. SHELL INIT
+#!/bin/bash
+
+# to run bash file use    sudo bash filename.sh
+
+# to run another file from within bash file...use following bash script
+ #!/bin/bash
+ 
+ SCRIPT_PATH="myPythonscript.py"            # vars
+ PYTHON_PATH="/usr/bin/python"
+ 
+ # call script from within another script using vars
+ $PYTHON_PATH $SCRIPT_PATH
+ 
+ # or
+ 
+ # call script using command (python3) and not var
+ python3 $SCRIPT_PATH
+
