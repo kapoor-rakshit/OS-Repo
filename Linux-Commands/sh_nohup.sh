@@ -9,5 +9,5 @@
 
 # & returns control back to terminal
 
-nohup <UNIX_COMMAND> &
+sudo nohup <UNIX_COMMAND> > log.txt 2>&1 &
 
