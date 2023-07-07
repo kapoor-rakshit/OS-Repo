@@ -1,4 +1,3 @@
-
 # REFERENCE : https://www.ostechnix.com/a-beginners-guide-to-cron-jobs/
 #           : https://www.computerhope.com/unix/ucrontab.htm
 #           : https://crontab.guru
@@ -10,10 +9,8 @@
 # Cron is used for running scheduled backups, monitoring disk space, deleting files (for example log files) periodically, running system maintenance tasks and a lot more.
 # Each user on your system can have a personal crontab.
 
-
 # Crontab files are located in /var/spool/ (or a subdirectory such as /var/spool/cron/crontabs),
 # but they are not intended to be edited directly. Instead, they are edited by running crontab.
-
 
 
 # display contents of crontab file of specific user/current user cron jobs
@@ -41,11 +38,9 @@
 # CONTENTS of CRONTAB
   # The cron daemon checks the contents of crontab once every minute to check if anything matches.
 
-
   # An environment setting line in the crontab can set environment variables for whenever cron runs a job.
   # Some environment variables are set automatically by cron. Not every system's crontab can include environment settings.
   # eg: SHELL is set to /bin/sh.
-
 
   # Configuration Files
   # /etc/cron.allow	   : If this file exists, users must be listed in this file to be able to run cron jobs.
@@ -56,6 +51,7 @@
 
   # Syntax  :  * * * * * <command_to_execute>
   # Minute(0-59) Hour(0-23) Day_of_month(1-31) Month(1-12) Day_of_week(0-6 , 0 or 7 both are Sunday | or use names) <command_to_execute>
+  # NOTE: All times/dates are as per UTC,  eg: "0 10 * * *" means 15:30 IST(10+5:30)   and   "0 18 * * *" means 23:30 IST(18+5:30)
 
   # Names can also be used for the "month" and "day of week" fields. 
   # Use full or first three letters of the particular day or month (case doesn't matter). Ranges or lists of names are not allowed.
